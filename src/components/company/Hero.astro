@@ -1,0 +1,69 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Hero1 from "../../assets/company/hero-1.jpg";
+import Hero2 from "../../assets/company/hero-2.jpg";
+import Hero3 from "../../assets/company/hero-3.jpg";
+import Hero4 from "../../assets/company/hero-4.jpg";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+---
+
+<div class="pt-56 pb-24 bg-white-lighter">
+  <HorizontalSpace>
+    <div class="flex justify-between items-center">
+      <div class="w-6/12">
+        <div class="flex justify-end items-end gap-2 mb-2">
+          <div
+            class="w-[355px] h-[325px] overflow-hidden rounded-2xl rounded-tl-[60px]"
+          >
+            <Image src={Hero1} alt="hero1" class="h-full" />
+          </div>
+          <div
+            class="w-[235px] h-[285px] overflow-hidden rounded-2xl rounded-tr-[60px]"
+          >
+            <Image src={Hero2} alt="hero2" class="h-full" />
+          </div>
+        </div>
+        <div class="flex justify-start items-start gap-2">
+          <div
+            class="w-[235px] h-[220px] overflow-hidden rounded-2xl rounded-bl-[60px]"
+          >
+            <Image src={Hero3} alt="hero3" class="h-full" />
+          </div>
+          <div
+            class="w-[355px] h-[275px] overflow-hidden rounded-2xl rounded-br-[60px]"
+          >
+            <Image src={Hero4} alt="hero4" class="h-full" />
+          </div>
+        </div>
+      </div>
+      <div class="max-w-[595px]">
+        <div class="text-primary mb-8">
+          <p class="text-[2.2rem]">Somo una empresa con más de</p>
+          <h1 class="text-[2.65rem] font-bold uppercase">
+            23 años en el mercado
+          </h1>
+        </div>
+        <div class="text-lg">
+          <p class="mb-8">
+            Especializados en manejo de carga Aérea y Marítima, Agencia Aduanal,
+            tanto en Importaciones como Exportaciones y a la vez con amplio
+            expertise en consolidadores de cargas.
+          </p>
+          <p class="mb-8">
+            Por más de dos décadas hemos estado conectando personas y empresas a
+            nivel global.
+          </p>
+          <p class="mb-8">
+            Nuestra trayectoria se respalda en un compromiso con los clientes
+            con brindar soluciones integrales apegadas a la excelencia,
+            agilidad, eficiencia y puntualidad en las gestiones a nuestros
+            clientes adaptándonos a sus requerimientos específicos y
+            garantizando la seguridad de sus mercancías.
+          </p>
+          <Button bold primary>CONOCER MÁS</Button>
+        </div>
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

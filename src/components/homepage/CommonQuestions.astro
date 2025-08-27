@@ -1,0 +1,87 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import SubTitle from "../SubTitle.astro";
+import Title from "../Title.astro";
+
+const commonQuestions = [
+  {
+    question: "¿Cómo puedo hablar con atención al cliente?",
+    answer:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+  {
+    question: "¿Como dar seguimiento a tus paquetes y ver estatus?",
+    answer:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+  {
+    question: "¿Qué es el tracking number?",
+    active: true,
+    answer:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+  {
+    question: "¿Qué Está Prohibido Enviar?",
+    answer:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+];
+---
+
+<div class="w-full bg-white mb-32">
+  <HorizontalSpace>
+    <Title> Preguntas frecuentes </Title>
+    <div class="mb-20">
+      <SubTitle
+        >Encuentra aquí respuestas claras y rápidas a las preguntas más comunes
+        sobre nuestros servicios y envíos.</SubTitle
+      >
+    </div>
+
+    <div>
+      <div class="flex justify-between items-center mb-8">
+        {
+          commonQuestions.map(({ question, active }) => {
+            return (
+              <div
+                class={`relative ${active ? "bg-primary text-white rounded-2xl ml-[-1px]" : ""} text-primary text-xl font-bold w-full text-center p-4 after:content-[''] after:absolute after:w-[1px] after:bg-primary after:top-0 after:bottom-0 after:m-auto after:right-0 after:h-full after:max-h-[60px] last:after:hidden`}
+              >
+                <div class={`arrow border-primary ${active ? "" : "hidden"}`} />
+                {question}
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="">
+        {
+          commonQuestions.map(({ answer, active }) => {
+            return (
+              <div
+                class={`w-full text-center bg-primary text-white py-10 rounded-2xl flex justify-center items-center ${active ? "" : "hidden"}`}
+              >
+                <div class="w-full max-w-[860px] font-bold">{answer}</div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>
+
+<style>
+  .arrow {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+
+    border-bottom: 25px solid var(--color-primary);
+    position: absolute;
+    bottom: -33px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+</style>

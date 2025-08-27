@@ -1,0 +1,75 @@
+---
+import HorizontalSpace from "./HorizontalSpace.astro";
+import SubTitle from "./SubTitle.astro";
+import PhoneIcon from "../assets/footer/phone-icon.png";
+import FacebookIcon from "../assets/footer/facebook.png";
+import InstagramIcon from "../assets/footer/instagram.png";
+import { Image } from "astro:assets";
+---
+
+<div class="w-full bg-gray text-white-dark py-36 pb-28 leading-[32px]">
+  <HorizontalSpace>
+    <div class="w-full flex justify-between items-start">
+      <div>
+        <div class="mb-8">
+          <SubTitle whiteLighter noCenter
+            >GLOBAL INTERNATIONAL SERVICES</SubTitle
+          >
+        </div>
+
+        <div>
+          <p>
+            Copyright © 2024 · All Rights Reserved · GISPAQuetería<br />Website
+            made by Edromar · RSS Fedd · Acceder
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="mb-8">
+          <SubTitle whiteLighter noCenter>EMPRESA</SubTitle>
+        </div>
+        <div class="flex flex-col justify-start items-start">
+          <a>Nosotros</a>
+          <a>Políticas y privacidad</a>
+          <a>Tips</a>
+        </div>
+      </div>
+      <div>
+        <div class="mb-8">
+          <SubTitle whiteLighter noCenter>SERVICIOS</SubTitle>
+        </div>
+        <div class="flex flex-col justify-start items-start">
+          <a>Carga Marítima</a>
+          <a>Gestión aduanal</a>
+          <a>Envíos nacionales</a>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-start">
+        <div class="mb-8">
+          <SubTitle whiteLighter noCenter>CONTACTOS</SubTitle>
+        </div>
+        <div>
+          <p>Miami</p>
+          <p class="flex justify-start items-center mb-6">
+            <Image src={PhoneIcon} alt="phone-icon" width="20" class="mr-4" /> 305
+            356 1348
+          </p>
+          <p>Santo Domingo</p>
+          <p class="flex justify-start items-center">
+            <Image src={PhoneIcon} alt="phone-icon" width="20" class="mr-4" /> 809
+            531 8255
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="mb-8">
+          <SubTitle whiteLighter noCenter>REDES SOCIALES</SubTitle>
+        </div>
+        <div class="flex justify-start items-center">
+          <Image src={FacebookIcon} alt="facebook" width="30" class="mr-4" />
+          <Image src={InstagramIcon} alt="instagram" width="30" />
+        </div>
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import HeroImage from "../../assets/homepage/hero.png";
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Button from "../Button.astro";
+---
+
+<div
+  class="w-full max-h-[1074px] overflow-hidden bg-[url(/homepage/hero.png)] bg-cover relative"
+>
+  <Image src={HeroImage} alt="hero" />
+  <div
+    class="bg-linear-to-r from-secondary from-0% to-transparent absolute top-0 left-0 w-full h-full"
+  >
+    <div
+      class="absolute bottom-0 left-0 w-full h-44 bg-linear-to-t from-secondary to-transparent"
+    >
+    </div>
+  </div>
+
+  <div class="absolute top-0 left-0 right-0 m-auto max-w-[1200px]">
+    <HorizontalSpace>
+      <div
+        class="pt-[300px] mx-[32px] text-white max-w-[650px]"
+      >
+        <h1 class="text-6xl">
+          Expertos en Manejo <br /> de carga, brindamos<br /> Soluciones y asesoria
+          <br /> en gestión Aduanal.
+        </h1>
+        <p class="text-xl mt-[60px] mb-[50px]">
+          Somos una empresa con más de 23 años en el mercado, especializados en
+          manejo de carga Aérea y marítima, agencia aduanal, tannto en
+          importaciones como exportaciones y a la vez con amplio expertise en
+          ser consolidadores de cargas.
+        </p>
+        <Button>CONOCER MÁS</Button>
+      </div>
+    </HorizontalSpace>
+  </div>
+</div>

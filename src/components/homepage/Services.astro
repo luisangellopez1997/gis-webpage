@@ -1,0 +1,49 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Service1Image from "../../assets/homepage/service-1.png";
+import Service2Image from "../../assets/homepage/service-2.png";
+import Service3Image from "../../assets/homepage/service-3.png";
+import Service4Image from "../../assets/homepage/service-4.png";
+import Service5Image from "../../assets/homepage/service-5.png";
+import { Image } from "astro:assets";
+import Title from "../Title.astro";
+import SubTitle from "../SubTitle.astro";
+
+const services = [
+  { title: "Gestión aduanal", image: Service1Image },
+  { title: "carga Marítima", image: Service2Image },
+  { title: "carga aérea", image: Service3Image, active: true },
+  { title: "courier", image: Service4Image },
+  { title: "servicios de transporte", image: Service5Image },
+];
+---
+
+<div class="bg-white-light pt-24 pb-28">
+  <HorizontalSpace>
+    <div class="mb-24">
+      <Title>Nuestros Servicios</Title>
+      <SubTitle>Comprometidos en brindar soluciones integrales.</SubTitle>
+    </div>
+    <div class="flex justify-between items-center w-full">
+      {
+        services.map(({ image, title, active }) => {
+          return (
+            <div class={`flex flex-col items-center justify-center`}>
+              <div class={` ${active ? 'w-[280px] h-[280px]' : 'w-[180px] h-[180px]'} rounded-full border-4 border-primary overflow-hidden relative mb-4`}>
+                <Image src={image} alt={title} />
+                <div
+                  class={`absolute top-[-2px] left-[-2px] bg-black ${active ? "opacity-0" : "opacity-65"} w-[calc(100%+4px)] h-[calc(100%+4px)] rounded-full`}
+                />
+              </div>
+              <p
+                class={`uppercase font-bold max-w-[220px] text-center text-primary text-xl ${active ? "" : "opacity-65"}`}
+              >
+                {title}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </HorizontalSpace>
+</div>

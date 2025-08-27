@@ -1,0 +1,18 @@
+---
+export interface Props {
+  white?: boolean;
+  whiteLighter?: boolean;
+  noCenter?: boolean;
+  noBold?: boolean;
+}
+
+const { white, noCenter, whiteLighter, noBold } = Astro.props;
+---
+
+<div class="flex justify-center items-center">
+  <p
+    class={`text-xl ${noBold ? "" : "font-bold"} w-full ${noCenter ? "" : "text-center"} max-w-[671px] ${whiteLighter ? "text-white-lighter" : white ? "text-white" : ""}`}
+  >
+    <slot />
+  </p>
+</div>

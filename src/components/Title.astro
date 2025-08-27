@@ -1,0 +1,13 @@
+---
+export interface Props {
+  white?: boolean;
+}
+
+const { white } = Astro.props;
+---
+
+<h2
+  class={` uppercase font-bold ${white ? "text-white text-6xl mb-2" : "text-primary text-5xl mb-8"} w-full text-center`}
+>
+  <slot />
+</h2>

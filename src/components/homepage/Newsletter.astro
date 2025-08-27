@@ -1,0 +1,31 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import SubTitle from "../SubTitle.astro";
+import Title from "../Title.astro";
+import NewsletterImage from "../../assets/homepage/newsletter.jpg";
+import Input from "../Input.astro";
+import Button from "../Button.astro";
+---
+
+<div
+  class="bg-[url(/homepage/newsletter.jpg)] bg-cover bg-center bg-no-repeat relative w-full"
+>
+  <div class="w-full h-full bg-[rgba(0,0,0,0.7)] py-40 pt-52">
+    <HorizontalSpace>
+      <div class="mb-12">
+        <div class="mb-4">
+          <Title white>¡Suscríbete a nuestro boletín!</Title>
+        </div>
+        <SubTitle white noBold
+          >SUSCRÍBETE A NUESTRO BOLETÍN Y MANTENTE ACTUALIZADO.</SubTitle
+        >
+        <div class="flex justify-center items-center w-full mt-16">
+          <form class="flex justify-center items-center w-full">
+            <Input placeholder="Correo electrónico" />
+            <Button filled type="submit">SUSCRIBIRME</Button>
+          </form>
+        </div>
+      </div>
+    </HorizontalSpace>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import SignupImage from "../../assets/homepage/form.png";
+import CalculatorImage from "../../assets/homepage/keys.png";
+import TrackImage from "../../assets/homepage/location.png";
+import AccountImage from "../../assets/homepage/user.png";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+
+const info = [
+  {
+    title: "calculadora",
+    img: CalculatorImage,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+  },
+  {
+    title: "rastreo",
+    img: TrackImage,
+    active: true,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+  },
+  {
+    title: "mi cuenta",
+    img: AccountImage,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+  },
+  {
+    title: "registrarte",
+    img: SignupImage,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+  },
+];
+---
+
+<div class="bg-secondary w-full flex pb-44">
+  <HorizontalSpace>
+    <div class="text-white max-w-[900px] relative left-0 right-0 m-auto">
+      <div class="w-full text-center mb-40">
+        <p class="uppercase text-xl font-bold">Dirección de envío</p>
+        <p class="text-4xl font-bold">
+          10250 NW 89 AV. BAY 10, MEDLEY FL. 33178
+        </p>
+      </div>
+      <div>
+        <div class="flex items-center justify-between w-full mb-24">
+          {
+            info.map(({ title, active, img }) => {
+              return (
+                <div
+                  class={`flex flex-col items-center justify-center cursor-pointer ${active ? "" : "opacity-50"}`}
+                >
+                  <div class="rounded-full border border-white p-[40px] mb-8">
+                    <Image src={img} alt={title} class="max-w-[55px]" />
+                  </div>
+                  <p class="uppercase font-bold text-xl">{title}</p>
+                </div>
+              );
+            })
+          }
+        </div>
+        <div>
+          {
+            info.map(({ description, active }) => {
+              return (
+                <div
+                  class={`flex justify-between items-center ${active ? "" : "hidden"}`}
+                >
+                  <p class="text-lg max-w-[550px]">{description}</p>
+                  <Button>EXPLORAR</Button>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

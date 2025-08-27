@@ -1,0 +1,25 @@
+---
+export interface Props {
+  filled?: boolean;
+  type?: "submit" | "button";
+  primary?: boolean;
+  bold?: boolean;
+}
+
+const { filled, type, primary, bold } = Astro.props;
+
+const textBold = bold || filled ? "font-bold" : "font-[300]";
+const color = primary ? "text-primary" : filled ? "text-black" : "text-white";
+const borderColor = primary
+  ? "border-primary"
+  : filled
+    ? "border-black"
+    : "border-white";
+---
+
+<button
+  class={` border-2 rounded-sm  text-lg ${filled ? "bg-white rounded-xl px-6 py-4" : "px-3 py-2"} ${color} ${borderColor} ${textBold}`}
+  type={type}
+>
+  <slot />
+</button>
