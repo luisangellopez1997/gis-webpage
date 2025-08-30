@@ -8,7 +8,7 @@ export interface Props {
 
 const { filled, type, primary, bold } = Astro.props;
 
-const textBold = bold || filled ? "font-bold" : "font-[300]";
+const textBold = bold || filled ? "font-extrabold" : "font-[300]";
 const color = primary ? "text-primary" : filled ? "text-black" : "text-white";
 const borderColor = primary
   ? "border-primary"

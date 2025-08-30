@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+export interface Props {
+  title: string;
+  iconName: string;
+  text: { title?: string; description: string; height?: string }[];
+}
+
+const { title, iconName, text } = Astro.props;
+---
+
+<div class="rounded-xl bg-white-light shadow-lg">
+  <div
+    class="bg-primary text-white h-[282px] pt-[150px] rounded-xl w-full px-8 text-xl pb-8 relative flex flex-col items-start justify-center font-bold"
+  >
+    <div
+      class="absolute top-[-55px] left-0 right-0 m-auto py-4 bg-white text-primary w-[120px] flex justify-center items-center rounded-xl shadow-lg"
+    >
+      <Icon name={iconName} slot="icon" width={80} height={80} />
+    </div>
+    {title}
+  </div>
+  <div>
+    {
+      text.map((e) => {
+        return (
+          <div
+            class={`px-8 pt-[63px] text-center text-primary font-bold border-b last:border-b-0 border-gray-300 pb-24 relative w-full ${e.height ? e.height : ""}`}
+          >
+            {e.title && (
+              <p class="w-[75%] px-8 text-center text-white bg-primary rounded-xl h-[62px] flex justify-center items-center absolute top-[-31px] left-0 right-0 m-auto">
+                {e.title}
+              </p>
+            )}
+            <p>{e.description}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

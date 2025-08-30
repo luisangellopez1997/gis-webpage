@@ -1,0 +1,79 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Title from "../Title.astro";
+import IconWithText from "../IconWithText.astro";
+import ContainerImg from "../../assets/company/container.png";
+import { Image } from "astro:assets";
+---
+
+<div class="relative w-full bg-white-lighter py-24">
+  <div
+    class="absolute top-0 left-0 bottom-0 m-auto w-full h-screen overflow-hidden"
+  >
+    <Image
+      src={ContainerImg}
+      alt="container"
+      class="absolute left-[-120px] bottom-[250px] w-[380px] rotate-[160deg]"
+    />
+    <Image
+      src={ContainerImg}
+      alt="container"
+      class="absolute right-[-100px] w-[380px] top-[300px] rotate-[15deg]"
+    />
+  </div>
+
+  <HorizontalSpace>
+    <div class="relative">
+      <div class="flex flex-col items-center justify-start mb-20">
+        <Title>¿CÓMO USAMOS TU INFORMACIÓN?</Title>
+        <p class="text-primary text-lg max-w-[900px] text-center">
+          Utilizamos la información que recopilamos para proporcionar, mantener
+          y mejorar nuestros servicios, así como para comunicarnos con usted y
+          personalizar su experiencia. Requerimos este tipo de información para
+          entender sus necesidades y proveer un mejor servicio, y en particular
+          por las siguientes razones:
+        </p>
+      </div>
+
+      <div class="flex justify-center items-start w-full flex-wrap">
+        <div class="w-4/12">
+          <IconWithText iconName="application-edit-outline"
+            >Como registro interno de usuarios y/o compradores.</IconWithText
+          >
+        </div>
+        <div class="w-4/12">
+          <IconWithText iconName="microsoft-internet-explorer"
+            >Podríamos usar su información para mejorar este website de acuerdo
+            a sus intereses.</IconWithText
+          >
+        </div>
+        <div class="w-4/12">
+          <IconWithText iconName="package-variant" noSeparator
+            >Para mejorar nuestros productos y servicios.</IconWithText
+          >
+        </div>
+        <div class="w-5/12">
+          <IconWithText iconName="email" big
+            >Cada cierto tiempo, podríamos usar su información para contactarle
+            con fines de estudio de mercado. Podríamos contactar vía email,
+            teléfono, fax o correo.</IconWithText
+          >
+        </div>
+        <div class="w-5/12">
+          <IconWithText iconName="telegram" noSeparator
+            >Para enviarle correos electrónicos promocionales de nuevos
+            productos o servicios que podríamos considerar de su interés,
+            utilizando la dirección de correo electrónico que usted nos haya
+            provisto.</IconWithText
+          >
+        </div>
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>
+
+<script>
+  document.querySelector("body")?.addEventListener("scroll", (e) => {
+    console.log(e);
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Title from "../Title.astro";
+import PoliciesImg from "../../assets/company/policies.jpg";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+---
+
+<div class="py-40">
+  <HorizontalSpace>
+    <div class="flex justify-start items-start">
+      <div class="flex-6/12 leading-7 tracking-wider text-lg">
+        <div class="mb-20">
+          <Title noCenter>POLÍTICAS Y TERMINOS</Title>
+        </div>
+        <p class="flex justify-start items-center font-extrabold text-xl mb-4">
+          POLÍTICA DE PRIVACIDAD
+        </p>
+        <p class="mb-8">
+          Para Global International Services, es de suma importancia velar por
+          el debido cuidado de los datos personales de nuestros clientes y
+          asegurar que su información esté protegida. Esta política de
+          privacidad está diseñada para cumplir con las leyes y regulaciones
+          vigentes, proporcionando transparencia y claridad sobre el manejo de
+          la información personal de nuestros clientes.
+        </p>
+
+        <Button primary bold>CONOCER MÁS</Button>
+      </div>
+      <div class="flex-6/12 pl-20">
+        <Image src={PoliciesImg} alt="purpose" class="rounded-2xl" />
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

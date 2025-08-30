@@ -14,11 +14,18 @@ const links = [
 const pathname = Astro.url.pathname;
 ---
 
-<div class="absolute top-10 left-0 w-full z-20">
+<div class="fixed top-10 left-0 w-full z-20">
   <HorizontalSpace>
-    <div class="bg-white rounded-lg pr-4 flex justify-between items-center">
+    <div
+      class="bg-white rounded-lg pr-4 flex justify-between items-center shadow-[0px_10px_10px_1px_rgba(0,0,0,0.1)]"
+    >
       <div>
-        <Image src={LogoBig} alt="logo" height="110" class="rounded-full w-[500px]" />
+        <Image
+          src={LogoBig}
+          alt="logo"
+          height="110"
+          class="rounded-full w-[500px]"
+        />
       </div>
       <div
         class="flex justify-end items-center w-full text-primary font-bold text-sm"
@@ -28,7 +35,9 @@ const pathname = Astro.url.pathname;
             const thisPage = new RegExp(href + "$", "g").test(pathname);
             return (
               <div class="py-14 px-6 relative flex-1 text-center">
-                <a href={href} class="">{name}</a>
+                <a href={href} class="">
+                  {name}
+                </a>
                 <div
                   class={`w-full bg-primary h-1 absolute bottom-0 left-0 right-0 ${thisPage ? "" : "hidden"}`}
                 />

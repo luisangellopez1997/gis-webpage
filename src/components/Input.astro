@@ -1,12 +1,23 @@
 ---
+import type { boolean } from "astro:schema";
+
 export interface Props {
   placeholder?: string;
+  blue?: boolean;
+  responsive?: boolean;
+  autofocus?: boolean;
 }
 
-const { placeholder } = Astro.props;
+const { placeholder, blue, responsive, autofocus } = Astro.props;
+const colors = blue
+  ? "border-primary text-primary bg-transparent"
+  : "border-white text-white bg-[rgba(0,0,0,0.5)]";
+
+const responsiveClass = responsive ? "w-full" : "w-full max-w-[530px] mr-4";
 ---
 
 <input
   placeholder={placeholder}
-  class="w-full max-w-[530px] px-4 py-4 text-xl border-2 rounded-xl border-white text-white mr-4 bg-[rgba(0,0,0,0.5)] outline-none"
+  autofocus={autofocus}
+  class={`p-4 text-xl border-2 rounded-xl outline-none ${colors} ${responsiveClass}`}
 />

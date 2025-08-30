@@ -1,9 +1,168 @@
 ---
+import HorizontalSpace from "../components/HorizontalSpace.astro";
+import Service from "../components/services/Service.astro";
+import Form from "../components/services/Form.astro";
+import Title from "../components/Title.astro";
 import Layout from "../layouts/Layout.astro";
+
+const defaultIndex = 0;
+
+const data = [
+  {
+    title: "Courier / Carga Áerea",
+    content:
+      "<p>En GISPAQueteria, ofrecemos envíos desde Miami hasta la República Dominicana, con un tiempo de entrega récord. Nuestra dedicación y compromiso nos permiten proporcionar un servicio de transporte eficiente y seguro. No cobramos por volumen, solo por el peso de sus paquetes.</p> <p>Brindamos un servicio rápido y adaptado a las necesidades específicas de cada cliente. Nos enorgullece ofrecer soluciones personalizadas que se ajustan a tus requerimientos. Con nosotros, puedes estar seguro de que tus envíos están en buenas manos. Confía en nuestra experiencia y profesionalismo para manejar tus paquetes. Tu satisfacción es nuestra prioridad, y trabajamos arduamente para superar tus expectativas en cada envío.</p>",
+  },
+  {
+    title: "Carga Marítima",
+    content:
+      "<p>En el proceso aduanal de cargas marítimas las cargas suelen tener un volumen mayor que las aéreas, lo que implica un manejo más complejo y detallado, y un poco más de tiempo en la entrega.</p><p>Las mercancías deben ser cuidadosamente embaladas y estibadas en contenedores, carga suelta y en pallet, lo que requiere tiempo y precisión para evitar daños durante el transporte. Además, los buques de carga tienen rutas y horarios específicos que pueden no ser tan flexibles como los vuelos de carga. Esto significa que, en algunos casos, las mercancías pueden tener que esperar en puerto hasta que haya un buque disponible para transportarlas. Este tiempo de espera puede extender el proceso aduanal.</p>",
+    items: [
+      {
+        title: "Freight forwarder",
+        content:
+          "Coordinamos, planificamos y ejecutamos el transporte de mercancía aérea y marítima nivel internacional, organizando embarques, y gestionamos de la documentación de transporte.",
+      },
+      {
+        title: "Consolidación o desconsolidación de cargas",
+        content:
+          "Seleccionando a nuestros clientes las vías de transporte ideales (marítimo, aéreo, terrestre), brindando asesoría logística para obtener la mejor experiencia en su manejo de carga.",
+      },
+    ],
+  },
+  {
+    title: "Gestión Aduanal",
+    content:
+      "<p>La gestión aduanal en la República Dominicana es un proceso crucial para el comercio internacional, asegurando que las mercancías que entran y salen del país cumplan con todas las regulaciones y normativas vigentes. Contamos con un servicio de asesoría y gestión aduanal que se destaca por su eficiencia y profesionalismo.</p><p>Nuestro equipo está compuesto por expertos altamente capacitados y con amplia experiencia en el manejo de trámites aduanales. Nos aseguramos de que cada paquete y carga reciban el tratamiento adecuado, minimizando los riesgos de retrasos y problemas legales. Estamos preparados para brindar soporte ante cualquier eventualidad que pueda surgir durante el proceso aduanal.</p>",
+    items: [
+      {
+        content:
+          "Clasificación arancelaria de mercancías según el sistema armonizado.",
+      },
+      {
+        content:
+          "Tramitación de documentos para la importación o exportación ante la aduana.",
+      },
+      {
+        content: "Representación del cliente ante autoridades aduaneras.",
+      },
+      {
+        content:
+          "Supervisión y coordinación del despacho aduanal, ya sea en puertos, aeropuertos o fronteras.",
+      },
+      {
+        content:
+          "Prevención de riesgos y cumplimiento normativo, evitando sanciones o demoras.",
+      },
+      {
+        content:
+          "Intermediación logística, trabajando en conjunto con transportistas, almacenadoras y operadores logísticos.",
+      },
+    ],
+  },
+  {
+    title: "Envíos Nacionales",
+    content:
+      "<ul><li>Envíos Nacionales entre sucursales de Gispaqueteria.</li><li>Pago exclusivo de contado en efectivo o Tarjeta de Crédito en Sucursal.</li><li>Gispaqueteria no proporciona empaque, el cliente debe pre-empacar su envío.</li><li>Este servicio solo aplica de sucursal a sucursal.</li><li>El consignatario (quien recibe) deberá presentarse en la sucursal a retirar.</li><li> Envíos personales únicos hasta 40 libras / volumen, si desea enviar mayor cantidad debe contactar con antelación.</li></ul>",
+  },
+];
 
 
 ---
 
 <Layout>
-    Servicios
+  <div class="relative w-full min-h-[922px]">
+    {
+      data.map((service, index) => {
+        return (
+          <div class="service">
+            <Service {...service} index={index} />
+          </div>
+        );
+      })
+    }
+    <div class="service">
+      <Form />
+    </div>
+  </div>
+  <div class="py-20">
+    <HorizontalSpace>
+      <div class="pb-4">
+        <Title>OTROS SERVICIOS</Title>
+      </div>
+      <div class="flex justify-center items-center w-full gap-4">
+        {
+          data.map(({ title }, index) => {
+            return (
+              <button class="service-button w-full bg-white-light px-4 pt-6 pb-5 text-base font-extrabold border-b-6 border-primary hover:bg-primary hover:text-white cursor-pointer">
+                {title}
+              </button>
+            );
+          })
+        }
+        <button
+          class="service-button w-full bg-white-light px-4 pt-6 pb-5 text-base font-extrabold border-b-6 border-primary hover:bg-primary hover:text-white cursor-pointer"
+        >
+          Solicita tu franquicia
+        </button>
+      </div>
+    </HorizontalSpace>
+  </div>
 </Layout>
+
+<script define:vars={{ defaultIndex }}>
+  const services = document.querySelectorAll(".service");
+  const buttons = document.querySelectorAll(".service-button");
+
+  const showActiveService = (index) => {
+    const actualActiveService = document.querySelector(".service.active");
+    const actualActiveButton = document.querySelector(".service-button.active");
+
+    if (actualActiveService) {
+      actualActiveService.classList.remove("active");
+      actualActiveButton.classList.remove("active");
+    }
+
+    services.forEach((service, serviceIndex) => {
+      if (index === serviceIndex) {
+        service.classList.add("active");
+        buttons[index].classList.add("active");
+      }
+    });
+  };
+
+  showActiveService(defaultIndex);
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      showActiveService(index);
+    });
+  });
+</script>
+
+<style is:global>
+  .service {
+    display: none;
+  }
+  .service-button {
+    display: block;
+  }
+
+  .service.active {
+    display: block;
+  }
+
+  .service-button.active {
+    display: none;
+  }
+
+  .service p,
+  .service li {
+    margin-bottom: 32px;
+  }
+
+  .service li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+</style>

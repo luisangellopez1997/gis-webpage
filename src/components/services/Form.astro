@@ -1,0 +1,81 @@
+---
+import Button from "../Button.astro";
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Input from "../Input.astro";
+import Title from "../Title.astro";
+import Hero1 from "../../assets/services/hero-1.jpg";
+import Hero2 from "../../assets/services/hero-2.jpg";
+import Hero3 from "../../assets/services/hero-3.jpg";
+import Hero4 from "../../assets/services/hero-4.jpg";
+import { Image } from "astro:assets";
+---
+
+<div class="pt-60 pb-20 bg-white-lighter aspect-[1920/922] w-full">
+  <HorizontalSpace>
+    <div class="flex justify-start items-start w-full gap-16">
+      <div class="w-6/12">
+        <Title noCenter noMarginBottom>SOLICITA TU FRANQUICIA</Title>
+        <p class="text-4xl text-primary mt-2">Gispaquetería</p>
+        <form class="w-full mt-12">
+          <div
+            class="w-full flex flex-col justify-start items-start gap-4 mb-4"
+          >
+            <div class="w-full flex justify-start items-start gap-4">
+              <div class="w-full">
+                <Input autofocus responsive blue placeholder="Nombre:" />
+              </div>
+              <div class="w-full">
+                <Input responsive blue placeholder="Apellido:" />
+              </div>
+            </div>
+            <div class="w-full">
+              <Input responsive blue placeholder="Correo Electrónico:" />
+            </div>
+            <div class="w-full">
+              <Input responsive blue placeholder="Teléfono Celular:" />
+            </div>
+            <div class="w-full">
+              <Input responsive blue placeholder="Teléfono Oficina:" />
+            </div>
+            <div class="w-full">
+              <Input responsive blue placeholder="Ciudad:" />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="bg-primary font-bold text-white p-4 rounded-lg"
+            >SOLICITAR</button
+          >
+        </form>
+      </div>
+      <div class="w-6/12 flex justify-center items-center">
+        <div class="w-full">
+          <div class="flex justify-start items-end gap-2 mb-2">
+            <div
+              class="w-[335px] h-[310px] overflow-hidden rounded-2xl rounded-tl-[60px]"
+            >
+              <Image src={Hero1} alt="hero1" class="h-full" />
+            </div>
+            <div
+              class="w-[225px] h-[270px] overflow-hidden rounded-2xl rounded-tr-[60px]"
+            >
+              <Image src={Hero2} alt="hero2" class="h-full" />
+            </div>
+          </div>
+          <div class="flex justify-end items-start gap-2">
+            <div
+              class="w-[220px] h-[210px] overflow-hidden rounded-2xl rounded-bl-[60px]"
+            >
+              <Image src={Hero3} alt="hero3" class="h-full" />
+            </div>
+            <div
+              class="w-[335px] h-[260px] overflow-hidden rounded-2xl rounded-br-[60px]"
+            >
+              <Image src={Hero4} alt="hero4" class="h-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

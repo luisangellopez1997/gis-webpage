@@ -1,0 +1,39 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import TextTabs from "../TextTabs.astro";
+import Title from "../Title.astro";
+
+const items = [
+  {
+    title: "Divulgación de la Información",
+    active: true,
+    description:
+      "Podemos compartir su información personal con proveedores de servicios que nos ayudan a operar nuestros servicios o a cumplir con sus solicitudes. También podemos divulgar su información personal cuando creemos de buena fe que la divulgación es necesaria para cumplir con la ley, proteger nuestros derechos o prevenir fraudes u otros daños.",
+  },
+  {
+    title: "Seguridad de la Información",
+    description:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+  {
+    title: "Protección y Control de la Información",
+
+    description:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+  {
+    title: "Pagos Online",
+    description:
+      "Es el número con el cual usted hace seguimiento a su paquete mientras el mismo es trasladado desde el proveedor/suplidor o tienda online hasta nuestro almacén en Miami.",
+  },
+];
+---
+
+<div class="bg-white py-20">
+  <HorizontalSpace>
+    <div class="mb-12">
+      <Title>INFORMACIÓN ADICIONAL</Title>
+    </div>
+    <TextTabs items={items} />
+  </HorizontalSpace>
+</div>

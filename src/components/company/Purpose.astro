@@ -1,0 +1,66 @@
+---
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Title from "../Title.astro";
+import PurposeImg from "../../assets/company/purpose.jpg";
+import missionIcon from "../../assets/company/mission.png";
+import VisionIcon from "../../assets/company/vision.png";
+import ValuesIcon from "../../assets/company/values.png";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+---
+
+<div class="py-40 bg-white-lighter">
+  <HorizontalSpace>
+    <div class="flex justify-start items-start">
+      <div class="flex-6/12 leading-7 tracking-wider text-lg">
+        <Title noCenter>nuestro propósito</Title>
+        <p
+          class="flex justify-start items-center font-bold text-primary text-xl mb-4"
+        >
+          <Image src={missionIcon} alt="mission" class="w-[30px] mr-2" />MISIÓN
+        </p>
+        <p class="mb-8">
+          Brindar soluciones logísticas integrales en servicios de Agencia
+          Aduanal, Consolidadores y gestores de carga Aérea y Marítima,
+          destacándonos por nuestra eficiencia operativa, seguridad, compromiso
+          con la puntualidad y agilidad para asegurar la mayor satisfacción de
+          nuestros clientes
+        </p>
+        <p class="mb-16">¡Transportamos tus sueños!</p>
+        <p
+          class="flex justify-start items-center font-bold text-primary text-xl mb-4"
+        >
+          <Image src={VisionIcon} alt="vision" class="w-[30px] mr-2" />VISIÓN
+        </p>
+        <p class="mb-16">
+          Ser socios aliados con nuestros clientes desarrollando confianza en
+          manejar sus mercancías con seguridad, agilidad, eficiencia, asesoría
+          considerando como principal pilar el servicio y orientación
+          personalizada.
+        </p>
+        <p
+          class="flex justify-start items-center font-bold text-primary text-xl mb-4"
+        >
+          <Image src={ValuesIcon} alt="vision" class="w-[30px] mr-2" />VALORES
+        </p>
+        <div class="flex justify-start items-center gap-20 ml-8 mb-12">
+          <ul class="list-disc">
+            <li>Compromiso</li>
+            <li>Eficiencia</li>
+            <li>Tranparencia</li>
+          </ul>
+          <ul class="list-disc">
+            <li>Asesoria</li>
+            <li>Dinámicos</li>
+            <li>Responsabilidad Social</li>
+          </ul>
+        </div>
+
+        <Button primary bold>CONOCER MÁS</Button>
+      </div>
+      <div class="flex-6/12 pl-20">
+        <Image src={PurposeImg} alt="purpose" />
+      </div>
+    </div>
+  </HorizontalSpace>
+</div>

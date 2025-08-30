@@ -1,0 +1,92 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import HorizontalSpace from "../HorizontalSpace.astro";
+import Button from "../Button.astro";
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  title: string;
+  content: string;
+  items?: { title?: string; content: string }[];
+  index: number;
+}
+
+const { title, content, items, index } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  `/src/assets/services/*.{jpeg,jpg,png,gif}`
+);
+
+const image = images[`/src/assets/services/service-${index + 1}.jpg`]();
+---
+
+<div class="w-full relative top-0 left-0 pb-20">
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden bg-secondary">
+    <Image src={image} alt={`service-${index + 1}`} />
+    <div
+      class="bg-linear-to-r from-secondary from-0% to-transparent absolute top-0 left-0 w-full h-full"
+    >
+      <!-- <div
+        class="absolute bottom-0 left-0 w-full h-44 bg-linear-to-t from-secondary to-transparent"
+      >
+      </div> -->
+    </div>
+  </div>
+  <div class="absolute top-0 left-0 w-full h-full"></div>
+  <div class="relative pt-60 text-white text-lg text-shadow-lg">
+    <div class="w-full">
+      <HorizontalSpace>
+        <h2 class="text-5xl font-extrabold mb-12 uppercase">{title}</h2>
+        <div class="max-w-[50%] leading-7" set:html={content} />
+      </HorizontalSpace>
+    </div>
+    {
+      items && (
+        <div>
+          <HorizontalSpace>
+            <div class="extraItemsButton w-fit">
+              <Button bold>CONOCER MÁS</Button>
+            </div>
+          </HorizontalSpace>
+          <div class="w-full bg-linear-to-t pt-16 hidden from-secondary from-[calc(100%-96px)] to-transparent">
+            <HorizontalSpace>
+              <div
+                class={`extraItems grid ${items.length > 2 ? "grid-cols-3" : "grid-cols-2"} gap-8 mt-16 flex-wrap`}
+              >
+                {items.map(({ content, title }) => {
+                  return (
+                    <div class="bg-white rounded-xl px-10 pt-28 pb-8 flex-1 text-primary text-base relative min-w-[calc(33%-32px)] flex justify-center items-start flex-col">
+                      <div class="absolute top-[-40px] left-10 flex justify-center items-center rounded-xl bg-primary text-white w-[120px] h-[120px]">
+                        <Icon name="mdi:check-bold" width={90} height={90} />
+                      </div>
+                      {title && <h3 class="text-xl font-bold mb-8">{title}</h3>}
+                      <div>{content}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </HorizontalSpace>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</div>
+<script>
+  const buttons =
+    document.querySelectorAll<HTMLDivElement>(".extraItemsButton");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const extraItems =
+        button.parentElement?.parentElement?.parentElement?.querySelector<HTMLDivElement>(
+          ".extraItems"
+        );
+      if (extraItems) {
+        const parent = extraItems.parentElement!.parentElement!.parentElement!;
+        parent.style.display = "grid";
+        button.style.display = "none";
+      }
+    });
+  });
+</script>

@@ -1,0 +1,80 @@
+---
+import CardMultipleText from "../cardMultipleText.astro";
+import HorizontalSpace from "../HorizontalSpace.astro";
+
+const items = [
+  {
+    title:
+      "Ventajas de las compras internacionales acceso a productos exclusivos.",
+    iconName: "mdi:cart-outline",
+    text: [
+      {
+        description:
+          "Muchas veces, los productos que deseas no están disponibles en tu país. Comprar en el extranjero te permite acceder a una variedad más amplia de productos exclusivos.",
+      },
+      {
+        title: "Mejores Precios:",
+        height: "h-[310px]",
+        description:
+          "Las tiendas internacionales y los catálogos a menudo ofrecen precios más competitivos, especialmente durante las temporadas de ofertas y descuentos.",
+      },
+      {
+        title: "Calidad Garantizada",
+        height: 'h-[210px]',
+        description:
+          "Al comprar en tiendas reconocidas y de confianza, puedes estar seguro de la calidad de los productos que adquieres.",
+      },
+    ],
+  },
+  {
+    title:
+      "Cómo realizar compras internacionales sin complicaciones, investigación de tiendas y catálogos:",
+    iconName: "mdi:credit-card",
+    text: [
+      {
+        description:
+          "Antes de realizar una compra, investiga las tiendas y catálogos que ofrecen los productos que deseas. Asegúrate de que sean confiables y tengan buenas reseñas.",
+      },
+      {
+        title: "Comparación de Precios:",
+        description:
+          "No te quedes con la primera oferta que encuentres. Compara precios en diferentes tiendas para asegurarte de obtener la mejor oferta posible.",
+      },
+    ],
+  },
+  {
+    title: "Comprensión de aduanas y aranceles",
+    iconName: "mdi:currency-usd-circle-outline",
+    text: [
+      {
+        description:
+          "Infórmate sobre las regulaciones aduaneras y los aranceles que podrían aplicarse a tus compras. Esto te ayudará a evitar sorpresas desagradables al recibir tus productos.",
+      },
+      {
+        title: "Métodos de Pago Seguros:",
+        height: "h-[310px]",
+        description:
+          "Utiliza métodos de pago seguros y confiables para proteger tu información financiera. Las tarjetas de crédito y los servicios de pago en línea son opciones recomendadas.",
+      },
+      {
+        title: "Seguimiento de Envíos:",
+        height: 'h-[210px]',
+        description:
+          "Una vez realizada la compra, utiliza herramientas de seguimiento para monitorear el estado de tu envío y asegurarte de que llegue a tiempo.",
+      },
+    ],
+  },
+];
+---
+
+<div class="py-40">
+  <HorizontalSpace>
+    <div class="flex justify-between items-start gap-8 w-full">
+      {
+        items.map((e) => {
+          return <CardMultipleText {...e} />;
+        })
+      }
+    </div>
+  </HorizontalSpace>
+</div>
