@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import HorizontalSpace from "./HorizontalSpace.astro";
 import LogoBig from "../assets/logo-big.png";
+import { Icon } from "astro-icon/components";
 
 const links = [
   { name: "Inicio", href: "/" },
@@ -14,27 +15,39 @@ const links = [
 const pathname = Astro.url.pathname;
 ---
 
-<div class="fixed top-10 left-0 w-full z-20">
+<div
+  class="navbar-open-button fixed top-4 right-4 text-white z-20 rounded-xl bg-primary p-2 md:hidden"
+>
+  <Icon name="mdi:menu" width={35} height={35} />
+</div>
+<div
+  class="navbar hidden md:block fixed pt-2 md:pt-10 md:left-0 right-0 md:right-auto w-full z-20"
+>
+  <div
+    class="absolute top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.4)] md:hidden"
+  >
+  </div>
   <HorizontalSpace>
     <div
-      class="bg-white rounded-lg pr-4 flex justify-between items-center shadow-[0px_10px_10px_1px_rgba(0,0,0,0.1)]"
+      class="bg-white rounded-lg flex flex-col md:flex-row justify-between items-center shadow-[0px_10px_10px_1px_rgba(0,0,0,0.1)] animate-fadeIn md:animate-none"
     >
-      <div>
-        <Image
-          src={LogoBig}
-          alt="logo"
-          height="110"
-          class="rounded-full w-[500px]"
+      <div class="mb-8 md:mb-0 flex justify-start items-start w-full md:w-auto">
+        <img src={LogoBig.src} alt="logo" class="w-auto md:h-[110px]" />
+        <Icon
+          name="mdi:close-circle"
+          width={35}
+          height={35}
+          class="navbar-quit md:hidden w-[55px] right-4 top-4 text-secondary"
         />
       </div>
       <div
-        class="flex justify-end items-center w-full text-primary font-bold text-sm"
+        class="flex justify-end flex-col md:flex-row items-center w-full text-primary font-bold text-sm"
       >
         {
           links.map(({ name, href }) => {
             const thisPage = new RegExp(href + "$", "g").test(pathname);
             return (
-              <div class="py-14 px-6 relative flex-1 text-center">
+              <div class="py-4 mb-20 last:mb-0 md:mb-0 md:py-14 px-6 relative flex-1 text-center w-full md:w-auto">
                 <a href={href} class="">
                   {name}
                 </a>
@@ -49,3 +62,23 @@ const pathname = Astro.url.pathname;
     </div>
   </HorizontalSpace>
 </div>
+
+<script>
+  const navbar = document.querySelector(".navbar")!;
+  const navbarQuit = document.querySelector(".navbar-quit")!;
+  const navbarOpenButton = document.querySelector(".navbar-open-button")!;
+
+  navbarOpenButton.addEventListener("click", () => {
+    navbar.classList.add("navbar-open");
+  });
+
+  navbarQuit.addEventListener("click", () => {
+    navbar.classList.remove("navbar-open");
+  });
+</script>
+
+<style>
+  .navbar.navbar-open {
+    display: block;
+  }
+</style>

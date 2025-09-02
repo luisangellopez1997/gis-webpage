@@ -8,42 +8,42 @@ import ContainerImg from "../../assets/company/container.png";
 import { Image } from "astro:assets";
 ---
 
-<div class="w-full bg-white-lighter py-28">
+<div class="w-full bg-white-lighter py-12 md:py-28">
   <HorizontalSpace>
     <div>
-      <div class="flex justify-start items-center gap-6 mb-6">
-        <div class="shrink w-4/12">
-          <h3 class="text-primary text-3xl font-extrabold block w-full">
+      <div class="flex justify-start items-center gap-6 mb-6 max-md:flex-col">
+        <div class="md:shrink md:w-4/12">
+          <h3 class="text-primary text-xl md:text-3xl font-extrabold block w-full">
             ¿QUÉ INFORMACIÓN PODEMOS SOLICITARLE?
           </h3>
         </div>
-        <div class="shrink w-4/12">
-          <p class="block w-full text-xl border-l-4 border-primary pl-12">
+        <div class="md:shrink md:w-4/12">
+          <p class="block w-full text-lg md:text-xl md:border-l-4 border-primary md:pl-12">
             Podemos recopilar información personal que usted nos proporcione,
             como:
           </p>
         </div>
-        <div class="flex-4/12 grow">
+        <div class="md:flex-4/12 md:grow max-md:w-full">
           <BadgeText
             ><Icon name="mdi:account" slot="icon" width={45} height={45} /> Nombre
           </BadgeText>
         </div>
       </div>
-      <div class="flex justify-start items-center gap-6 mb-6">
-        <div class="w-4/12">
+      <div class="flex justify-start items-center gap-6 mb-6 max-md:flex-col">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon name="mdi:email" slot="icon" width={45} height={45} /> Dirección
             de correo electrónico
           </BadgeText>
         </div>
 
-        <div class="w-4/12">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon name="mdi:phone" slot="icon" width={45} height={45} /> Número
             de teléfono
           </BadgeText>
         </div>
-        <div class="w-4/12">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon
               name="mdi:package-variant-closed"
@@ -54,8 +54,8 @@ import { Image } from "astro:assets";
           </BadgeText>
         </div>
       </div>
-      <div class="flex justify-start items-center gap-6">
-        <div class="w-4/12">
+      <div class="flex justify-start items-center gap-6 max-md:flex-col">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon name="mdi:currency-usd" slot="icon" width={45} height={45} />
             Información de pago
@@ -63,13 +63,13 @@ import { Image } from "astro:assets";
           </BadgeText>
         </div>
 
-        <div class="w-4/12">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon name="mdi:cookie" slot="icon" width={45} height={45} /> Datos
             de uso y cookies
           </BadgeText>
         </div>
-        <div class="w-4/12">
+        <div class="md:w-4/12">
           <BadgeText
             ><Icon name="mdi:map-marker" slot="icon" width={45} height={45} /> Ubicación
             <div slot="description" class="text-xs">

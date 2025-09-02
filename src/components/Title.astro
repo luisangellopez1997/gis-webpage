@@ -3,14 +3,15 @@ export interface Props {
   white?: boolean;
   noCenter?: boolean;
   noMarginBottom?: boolean;
+  centerOnMobile?: boolean;
 }
 
-const { white, noCenter, noMarginBottom } = Astro.props;
-const mb = noMarginBottom ? "" : white ? "mb-2" : "mb-8";
+const { white, noCenter, noMarginBottom, centerOnMobile } = Astro.props;
+const mb = noMarginBottom ? "" : white ? "mb-2" : "mb-4 md:mb-8";
 ---
 
 <h2
-  class={` uppercase font-extrabold ${white ? "text-white text-6xl" : "text-primary text-5xl"} ${mb} w-full ${noCenter ? "" : "text-center"}`}
+  class={`uppercase font-extrabold text-2xl ${white ? "text-white md:text-6xl" : "text-primary md:text-5xl"} ${mb} w-full ${noCenter ? "" : "text-center"} ${centerOnMobile ? "max-md:text-center" : ""}`}
 >
   <slot />
 </h2>

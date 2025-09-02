@@ -8,43 +8,43 @@ import { Image } from "astro:assets";
 import Button from "../Button.astro";
 ---
 
-<div class="pt-64 pb-24 bg-white-lighter">
+<div class="pt-20 md:pt-64 md:pb-24 bg-white-lighter">
   <HorizontalSpace>
-    <div class="flex justify-between items-center">
-      <div class="w-6/12">
-        <div class="flex justify-end items-end gap-2 mb-2">
+    <div class="flex justify-between items-center max-md:flex-col">
+      <div class="md:w-6/12 max-md:mb-4 max-md:w-full max-md:max-w-[300px]">
+        <div class="flex justify-end items-end gap-2 mb-2 w-full">
           <div
-            class="w-[355px] h-[325px] overflow-hidden rounded-2xl rounded-tl-[60px]"
+            class="w-[150px] max-md:aspect-[355/325] md:w-[355px] md:h-[325px] overflow-hidden rounded-2xl rounded-tl-[60px]"
           >
             <Image src={Hero1} alt="hero1" class="h-full" />
           </div>
           <div
-            class="w-[235px] h-[285px] overflow-hidden rounded-2xl rounded-tr-[60px]"
+            class="w-[110px] max-md:aspect-[235/285] md:w-[235px] md:h-[285px] overflow-hidden rounded-2xl rounded-tr-[60px]"
           >
             <Image src={Hero2} alt="hero2" class="h-full" />
           </div>
         </div>
         <div class="flex justify-start items-start gap-2">
           <div
-            class="w-[235px] h-[220px] overflow-hidden rounded-2xl rounded-bl-[60px]"
+            class="w-[110px] max-md:aspect-[235/220] md:w-[235px] md:h-[220px] overflow-hidden rounded-2xl rounded-bl-[60px]"
           >
             <Image src={Hero3} alt="hero3" class="h-full" />
           </div>
           <div
-            class="w-[355px] h-[275px] overflow-hidden rounded-2xl rounded-br-[60px]"
+            class="w-[130px] max-md:aspect-[355/285] md:w-[275px] md:h-[275px] overflow-hidden rounded-2xl rounded-br-[60px]"
           >
             <Image src={Hero4} alt="hero4" class="h-full" />
           </div>
         </div>
       </div>
-      <div class="max-w-[595px]">
+      <div class="md:max-w-[595px]">
         <div class="text-primary mb-8">
-          <p class="text-[2.2rem]">Somo una empresa con más de</p>
-          <h1 class="text-[2.65rem] font-bold uppercase">
+          <p class="text-base md:text-[2.2rem]">Somos una empresa con más de</p>
+          <h1 class="text-lg md:text-[2.65rem] font-bold uppercase">
             23 años en el mercado
           </h1>
         </div>
-        <div class="text-lg">
+        <div class="md:text-lg">
           <p class="mb-8">
             Especializados en manejo de carga Aérea y Marítima, Agencia Aduanal,
             tanto en Importaciones como Exportaciones y a la vez con amplio
@@ -61,7 +61,9 @@ import Button from "../Button.astro";
             clientes adaptándonos a sus requerimientos específicos y
             garantizando la seguridad de sus mercancías.
           </p>
-          <Button bold primary>CONOCER MÁS</Button>
+          <a href="/servicios#carga-aerea-courier"
+            ><Button bold primary fullWidthMobile>CONOCER MÁS</Button></a
+          >
         </div>
       </div>
     </div>

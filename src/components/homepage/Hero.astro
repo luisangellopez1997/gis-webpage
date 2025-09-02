@@ -5,10 +5,14 @@ import HorizontalSpace from "../HorizontalSpace.astro";
 import Button from "../Button.astro";
 ---
 
-<div
-  class="w-full max-h-[1074px] overflow-hidden bg-[url(/homepage/hero.png)] bg-cover relative"
->
-  <Image src={HeroImage} alt="hero" />
+<div class="w-full max-h-[1074px] overflow-hidden bg-cover relative">
+  <div class="w-full overflow-hidden flex justify-end items-start">
+    <Image
+      src={HeroImage}
+      alt="hero"
+      class="min-h-[400px] max-[1920px]:max-w-none"
+    />
+  </div>
   <div
     class="bg-linear-to-r from-secondary from-0% to-transparent absolute top-0 left-0 w-full h-full"
   >
@@ -20,20 +24,22 @@ import Button from "../Button.astro";
 
   <div class="absolute top-0 left-0 right-0 m-auto max-w-[1200px]">
     <HorizontalSpace>
-      <div
-        class="pt-[300px] mx-[32px] text-white max-w-[650px]"
-      >
-        <h1 class="text-6xl">
-          Expertos en Manejo <br /> de carga, brindamos<br /> Soluciones y asesoria
-          <br /> en gestión Aduanal.
+      <div class="pt-16 md:pt-[300px] md:mx-[32px] text-white max-w-[650px]">
+        <h1 class="text-3xl md:text-6xl">
+          Expertos en Manejo <br class="hidden md:inline" /> de carga, brindamos<br
+            class="hidden md:inline"
+          /> Soluciones y asesoria
+          <br class="hidden md:inline" /> en gestión Aduanal.
         </h1>
-        <p class="text-xl mt-[60px] mb-[50px]">
+        <p class="text-base md:text-xl mt-[60px] mb-[50px]">
           Somos una empresa con más de 23 años en el mercado, especializados en
           manejo de carga Aérea y marítima, agencia aduanal, tannto en
           importaciones como exportaciones y a la vez con amplio expertise en
           ser consolidadores de cargas.
         </p>
-        <Button>CONOCER MÁS</Button>
+        <a href="/servicios#gestion-aduanal">
+          <Button fullWidthMobile>CONOCER MÁS</Button>
+        </a>
       </div>
     </HorizontalSpace>
   </div>

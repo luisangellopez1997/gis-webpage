@@ -17,5 +17,20 @@ import "../styles/global.css";
     <Navbar />
     <slot />
     <Footer />
+    <script>
+      const modals = document.querySelectorAll<HTMLDivElement>("[data-modal]");
+      modals.forEach((modal) => {
+        const modalName = modal.getAttribute("data-modal");
+        modal.addEventListener("click", (e) => {
+          const modal = document.querySelector<HTMLDivElement>(
+            "[data-modal-name='" + modalName + "']"
+          );
+          if (modal) {
+            modal.classList.add("modal-open");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+    </script>
   </body>
 </html>

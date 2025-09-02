@@ -43,4 +43,18 @@
     --color-primary: #37529f;
     --color-secondary: #102254;
     --font-Montserrat: "Montserrat", sans-serif;
+
+    --animate-fadeIn: fadeIn .3s ease-out forwards;
+
+    @keyframes fadeIn {
+
+        0% {
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+
+    }
 }

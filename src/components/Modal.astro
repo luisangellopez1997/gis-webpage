@@ -1,0 +1,51 @@
+---
+export interface Props {
+  open?: boolean;
+  name: string;
+}
+
+const { open, name } = Astro.props;
+---
+
+<div class={`modal ${open ? "modal-open" : ""}`} data-modal-name={name}>
+  <div
+    class="modal-background w-full h-full fixed top-0 left-0 bg-[rgba(0,0,0,0.4)]"
+  >
+    <div
+      class="fixed w-full max-w-[1300px] h-full max-h-[900px] bg-primary top-0 left-0 right-0 bottom-0 m-auto p-16 pl-20 text-white rounded-xl shadow-[0px_10px_10px_5px_rgba(0,0,0,0.5)] animate-fadeIn"
+    >
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  console.log("hola");
+  const modal = document.querySelectorAll<HTMLDivElement>(".modal");
+  console.log(modal);
+  modal.forEach((modal) => {
+    const modalBackground =
+      document.querySelector<HTMLDivElement>(".modal-background");
+
+    console.log(modalBackground);
+    if (modalBackground) {
+      modalBackground.addEventListener("click", (e) => {
+        console.log(e);
+        if (e.target.classList.contains("modal-background")) {
+          modal.classList.remove("modal-open");
+          document.body.style.overflow = "initial";
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .modal {
+    display: none;
+  }
+
+  .modal-open {
+    display: block;
+  }
+</style>

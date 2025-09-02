@@ -7,14 +7,14 @@ const { items } = Astro.props;
 ---
 
 <div>
-  <div class="flex justify-between items-center mb-8">
+  <div class="flex flex-col md:flex-row justify-between items-center mb-8">
     {
       items.map(({ title, active }) => {
         return (
           <div
-            class={`relative ${active ? "bg-primary text-white rounded-2xl ml-[-1px]" : ""} text-primary text-xl font-bold w-full text-center p-4 after:content-[''] after:absolute after:w-[1px] after:bg-primary after:top-0 after:bottom-0 after:m-auto after:right-0 after:h-full after:max-h-[60px] last:after:hidden`}
+            class={`relative ${active ? "active" : ""} min-h-[88px] mb-4 md:mb-0 flex justify-center items-center text-tab cursor-pointer rounded-2xl text-primary md:text-xl font-bold w-full text-center p-4 after:content-[''] after:absolute after:w-[1px] after:bg-primary after:top-0 after:bottom-0 after:m-auto after:right-0 after:h-full after:max-h-[60px] last:after:hidden`}
           >
-            <div class={`arrow border-primary ${active ? "" : "hidden"}`} />
+            <div class={`arrow border-primary`} />
             {title}
           </div>
         );
@@ -26,7 +26,7 @@ const { items } = Astro.props;
       items.map(({ description, active }) => {
         return (
           <div
-            class={`w-full text-center bg-primary text-white py-10 rounded-2xl flex justify-center items-center ${active ? "" : "hidden"}`}
+            class={`text-tab-content text-sm md:text-base w-full text-center bg-primary text-white py-10 px-4 rounded-2xl flex justify-center items-center ${active ? "active" : ""}`}
           >
             <div class="w-full max-w-[860px] font-bold">{description}</div>
           </div>
@@ -50,4 +50,61 @@ const { items } = Astro.props;
     right: 0;
     margin: auto;
   }
+
+  .text-tab .arrow {
+    display: none;
+  }
+
+  .text-tab.active {
+    color: var(--color-white);
+    margin-left: -1px;
+    background-color: var(--color-primary);
+  }
+
+  .text-tab-content {
+    display: none;
+  }
+  .text-tab-content.active {
+    display: flex;
+  }
+
+  .text-tab.active:after {
+    display: none;
+  }
+
+  .text-tab:has(+ .text-tab.active):after {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .text-tab:after {
+      display: none;
+    }
+  }
 </style>
+
+<script>
+  const textTabs = document.querySelectorAll<HTMLDivElement>(".text-tab");
+  textTabs.forEach((textTab) => {
+    const textTabContent =
+      document.querySelector<HTMLDivElement>(".text-tab-content");
+    if (textTabContent) {
+      textTab.addEventListener("click", (e) => {
+        const textTabActive =
+          document.querySelector<HTMLDivElement>(".text-tab.active");
+        const textTabContentActive = document.querySelector<HTMLDivElement>(
+          ".text-tab-content.active"
+        );
+
+        if (textTabContentActive) {
+          textTabContentActive.classList.remove("active");
+        }
+        if (textTabActive) {
+          textTabActive.classList.remove("active");
+        }
+        textTabContent.classList.add("active");
+        textTab.classList.add("active");
+      });
+    }
+  });
+</script>

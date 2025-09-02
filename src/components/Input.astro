@@ -5,15 +5,21 @@ export interface Props {
   placeholder?: string;
   blue?: boolean;
   responsive?: boolean;
+  responsiveMobile?: boolean;
   autofocus?: boolean;
 }
 
-const { placeholder, blue, responsive, autofocus } = Astro.props;
+const { placeholder, blue, responsive, autofocus, responsiveMobile } =
+  Astro.props;
 const colors = blue
   ? "border-primary text-primary bg-transparent"
   : "border-white text-white bg-[rgba(0,0,0,0.5)]";
 
-const responsiveClass = responsive ? "w-full" : "w-full max-w-[530px] mr-4";
+const responsiveClass = responsive
+  ? "w-full"
+  : responsiveMobile
+    ? "max-md:w-full"
+    : "w-full max-w-[530px] mr-4";
 ---
 
 <input

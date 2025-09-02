@@ -6,7 +6,41 @@ import Info from "../components/company/Info.astro";
 import MoreInfo from "../components/company/MoreInfo.astro";
 import Policies from "../components/company/Policies.astro";
 import Purpose from "../components/company/Purpose.astro";
+import Modal from "../components/Modal.astro";
 import Layout from "../layouts/Layout.astro";
+
+const values = [
+  {
+    title: "Compromiso:",
+    content:
+      "Cumplimos con nuestras promesas de servicios y nos dedicamos en obtener la mejor experiencia de nuestros clientes.",
+  },
+  {
+    title: "Eficiencia:",
+    content:
+      "Buscamos contantemente que nuestros clientes puedan realizar sus operaciones con entregas agiles y con la debida orientación para lograr costo eficiencia.",
+  },
+  {
+    title: "Tranparencia:",
+    content:
+      "Actuamos con Honestidad y claridad en todas nuestras operaciones.",
+  },
+  {
+    title: "Asesoria:",
+    content:
+      "Nos enfocamos en orientar a nuestros clientes y brindarles la asesoría de lugar para poder realizar sus operaciones con los mejores resultados. Trabajo en equipo fomentamos la colaboración entre nuestro personal y nuestros clientes para alcanzar objetivos comunes.",
+  },
+  {
+    title: "Dinámicos:",
+    content:
+      "Nos adaptamos a las necesidades y retos de nuestros clientes, buscando la innovación y versatilidad.",
+  },
+  {
+    title: "Responsabilidad Social:",
+    content:
+      "Operamos de manera sostenible y contribuimos al desarrollo de las comunidades en las que trabajamos.",
+  },
+];
 ---
 
 <Layout>
@@ -17,4 +51,28 @@ import Layout from "../layouts/Layout.astro";
   <HowUseInfo />
   <AdditionalInfo />
   <MoreInfo />
+  <Modal name="company-purpose">
+    <div>
+      <h3 class="text-3xl font-extrabold">NUESTROS VALORES</h3>
+      <div class="mt-16">
+        {
+          values.map(({ title, content }, index) => {
+            return (
+              <div class="flex justify-between items-center gap-20">
+                <div
+                  class={`flex w-[25%] h-full justify-start items-center gap-4 ${index == values.length - 1 ? "" : "border-b-1 pt-8 pb-8"} border-white font-extrabold`}
+                >
+                  <div class="p-2 px-4 bg-white text-primary rounded-md shadow-md">
+                    {index + 1}
+                  </div>
+                  <p>{title}</p>
+                </div>
+                <div class="flex-1 mb-8">{content}</div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </Modal>
 </Layout>

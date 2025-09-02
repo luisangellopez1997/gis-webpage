@@ -12,11 +12,13 @@ const data = [
     title: "Courier / Carga Áerea",
     content:
       "<p>En GISPAQueteria, ofrecemos envíos desde Miami hasta la República Dominicana, con un tiempo de entrega récord. Nuestra dedicación y compromiso nos permiten proporcionar un servicio de transporte eficiente y seguro. No cobramos por volumen, solo por el peso de sus paquetes.</p> <p>Brindamos un servicio rápido y adaptado a las necesidades específicas de cada cliente. Nos enorgullece ofrecer soluciones personalizadas que se ajustan a tus requerimientos. Con nosotros, puedes estar seguro de que tus envíos están en buenas manos. Confía en nuestra experiencia y profesionalismo para manejar tus paquetes. Tu satisfacción es nuestra prioridad, y trabajamos arduamente para superar tus expectativas en cada envío.</p>",
+    path: "carga-aerea-courier",
   },
   {
     title: "Carga Marítima",
     content:
       "<p>En el proceso aduanal de cargas marítimas las cargas suelen tener un volumen mayor que las aéreas, lo que implica un manejo más complejo y detallado, y un poco más de tiempo en la entrega.</p><p>Las mercancías deben ser cuidadosamente embaladas y estibadas en contenedores, carga suelta y en pallet, lo que requiere tiempo y precisión para evitar daños durante el transporte. Además, los buques de carga tienen rutas y horarios específicos que pueden no ser tan flexibles como los vuelos de carga. Esto significa que, en algunos casos, las mercancías pueden tener que esperar en puerto hasta que haya un buque disponible para transportarlas. Este tiempo de espera puede extender el proceso aduanal.</p>",
+    path: "carga-maritima",
     items: [
       {
         title: "Freight forwarder",
@@ -34,6 +36,7 @@ const data = [
     title: "Gestión Aduanal",
     content:
       "<p>La gestión aduanal en la República Dominicana es un proceso crucial para el comercio internacional, asegurando que las mercancías que entran y salen del país cumplan con todas las regulaciones y normativas vigentes. Contamos con un servicio de asesoría y gestión aduanal que se destaca por su eficiencia y profesionalismo.</p><p>Nuestro equipo está compuesto por expertos altamente capacitados y con amplia experiencia en el manejo de trámites aduanales. Nos aseguramos de que cada paquete y carga reciban el tratamiento adecuado, minimizando los riesgos de retrasos y problemas legales. Estamos preparados para brindar soporte ante cualquier eventualidad que pueda surgir durante el proceso aduanal.</p>",
+    path: "gestion-aduanal",
     items: [
       {
         content:
@@ -64,10 +67,9 @@ const data = [
     title: "Envíos Nacionales",
     content:
       "<ul><li>Envíos Nacionales entre sucursales de Gispaqueteria.</li><li>Pago exclusivo de contado en efectivo o Tarjeta de Crédito en Sucursal.</li><li>Gispaqueteria no proporciona empaque, el cliente debe pre-empacar su envío.</li><li>Este servicio solo aplica de sucursal a sucursal.</li><li>El consignatario (quien recibe) deberá presentarse en la sucursal a retirar.</li><li> Envíos personales únicos hasta 40 libras / volumen, si desea enviar mayor cantidad debe contactar con antelación.</li></ul>",
+    path: "servicios-transporte",
   },
 ];
-
-
 ---
 
 <Layout>
@@ -85,16 +87,21 @@ const data = [
       <Form />
     </div>
   </div>
-  <div class="py-20">
+  <div class="py-8 md:py-20">
     <HorizontalSpace>
       <div class="pb-4">
         <Title>OTROS SERVICIOS</Title>
       </div>
-      <div class="flex justify-center items-center w-full gap-4">
+      <div
+        class="flex justify-center items-center w-full gap-4 max-md:flex-col"
+      >
         {
-          data.map(({ title }, index) => {
+          data.map(({ title, path }, index) => {
             return (
-              <button class="service-button w-full bg-white-light px-4 pt-6 pb-5 text-base font-extrabold border-b-6 border-primary hover:bg-primary hover:text-white cursor-pointer">
+              <button
+                class="service-button w-full bg-white-light px-4 pt-6 pb-5 text-base font-extrabold border-b-6 border-primary hover:bg-primary hover:text-white cursor-pointer"
+                data-path={path}
+              >
                 {title}
               </button>
             );
@@ -131,7 +138,16 @@ const data = [
     });
   };
 
-  showActiveService(defaultIndex);
+  const hash = window.location.hash.replace("#", "");
+
+  if (hash) {
+    const index = Array.from(buttons).findIndex(
+      (button) => button.getAttribute("data-path") === hash
+    );
+    showActiveService(index);
+  } else {
+    showActiveService(defaultIndex);
+  }
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {

@@ -21,24 +21,28 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const image = images[`/src/assets/services/service-${index + 1}.jpg`]();
 ---
 
-<div class="w-full relative top-0 left-0 pb-20">
-  <div class="absolute top-0 left-0 w-full h-full overflow-hidden bg-secondary">
-    <Image src={image} alt={`service-${index + 1}`} />
+<div class="w-full relative top-0 left-0 pb-4 md:pb-20">
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden bg-secondary max-[1920px]:flex max-[1920px]:justify-end max-[1920px]:items-end">
+    <Image
+      src={image}
+      alt={`service-${index + 1}`}
+      class="max-[1920px]:h-full max-[1920px]:max-w-none"
+    />
     <div
       class="bg-linear-to-r from-secondary from-0% to-transparent absolute top-0 left-0 w-full h-full"
     >
-      <!-- <div
-        class="absolute bottom-0 left-0 w-full h-44 bg-linear-to-t from-secondary to-transparent"
-      >
-      </div> -->
     </div>
   </div>
   <div class="absolute top-0 left-0 w-full h-full"></div>
-  <div class="relative pt-60 text-white text-lg text-shadow-lg">
+  <div class="relative pt-20 md:pt-60 text-white text-lg text-shadow-lg">
     <div class="w-full">
       <HorizontalSpace>
-        <h2 class="text-5xl font-extrabold mb-12 uppercase">{title}</h2>
-        <div class="max-w-[50%] leading-7" set:html={content} />
+        <h2
+          class="text-2xl max-md:text-center md:text-5xl font-extrabold mb-12 uppercase"
+        >
+          {title}
+        </h2>
+        <div class="md:max-w-[50%] leading-7" set:html={content} />
       </HorizontalSpace>
     </div>
     {
@@ -49,10 +53,10 @@ const image = images[`/src/assets/services/service-${index + 1}.jpg`]();
               <Button bold>CONOCER MÁS</Button>
             </div>
           </HorizontalSpace>
-          <div class="w-full bg-linear-to-t pt-16 hidden from-secondary from-[calc(100%-96px)] to-transparent">
+          <div class="w-full bg-linear-to-t pt-16 hidden from-secondary from-[calc(100%-96px)] to-transparent max-[1920px]:bg-none">
             <HorizontalSpace>
               <div
-                class={`extraItems grid ${items.length > 2 ? "grid-cols-3" : "grid-cols-2"} gap-8 mt-16 flex-wrap`}
+                class={`extraItems grid grid-cols-1 ${items.length > 2 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-16 md:gap-8 mt-8 md:mt-16 flex-wrap`}
               >
                 {items.map(({ content, title }) => {
                   return (
@@ -60,8 +64,12 @@ const image = images[`/src/assets/services/service-${index + 1}.jpg`]();
                       <div class="absolute top-[-40px] left-10 flex justify-center items-center rounded-xl bg-primary text-white w-[120px] h-[120px]">
                         <Icon name="mdi:check-bold" width={90} height={90} />
                       </div>
-                      {title && <h3 class="text-xl font-bold mb-8">{title}</h3>}
-                      <div>{content}</div>
+                      {title && (
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-8">
+                          {title}
+                        </h3>
+                      )}
+                      <div class="max-md:text-sm">{content}</div>
                     </div>
                   );
                 })}

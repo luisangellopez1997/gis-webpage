@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+import HorizontalSpace from "../components/HorizontalSpace.astro";
+import Input from "../components/Input.astro";
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+---
+
+<Layout>
+  <div class="bg-primary w-full text-white pt-20 pb-8 md:pt-60 md:pb-20">
+    <HorizontalSpace>
+      <div class="mb-8">
+        <Title white>EN G.I.S. TU OPINIÓN CUENTA. ¡CONTÁCTANOS HOY MISMO!</Title
+        >
+      </div>
+      <p class="text-center">
+        En Global Internacional Services, tu opinión y necesidades son nuestra
+        prioridad. Al contactarnos, no solo obtendrás respuestas rápidas y
+        soluciones efectivas, sino que también nos ayudarás a mejorar
+        continuamente nuestros servicios para ti. Cada mensaje y llamada nos
+        permite entender mejor tus expectativas y ofrecerte una experiencia
+        personalizada y de alta calidad.
+      </p>
+    </HorizontalSpace>
+  </div>
+  <div class="py-8">
+    <HorizontalSpace>
+      <div
+        class="flex justify-between items-center md:gap-12 pt-4 md:py-12 max-md:flex-col"
+      >
+        <div>
+          <div class="">
+            <div
+              class="flex justifty-start items-start text-4xl text-primary mb-8"
+            >
+              <p>
+                <span class="font-extrabold">CONTÁCTANOS</span>
+              </p>
+            </div>
+            <div
+              class="flex justify-start items-start gap-4 md:gap-8 mb-8 md:mb-12"
+            >
+              <div class="text-primary">
+                <Icon name="mdi:map-marker" width={25} height={25} />
+              </div>
+              <div>
+                <p class="font-extrabold text-primary mb-2">DIRECCIÓN</p>
+                <div class="flex justify-start items-start gap-8">
+                  <div>
+                    <p class="font-extrabold">
+                      10250 NW 89 AV. Bay 10, Medley FL. 33178
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-start items-start gap-4 md:gap-8 mb-8 md:mb-12"
+            >
+              <div class="text-primary">
+                <Icon name="mdi:email" width={25} height={25} />
+              </div>
+              <div>
+                <p class="font-extrabold text-primary mb-2">CORREO</p>
+                <div class="flex justify-start items-start gap-8">
+                  <div>
+                    <p class="font-extrabold">info@.com.do</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-start items-start gap-4 md:gap-8 mb-0 md:mb-12"
+            >
+              <div class="text-primary">
+                <Icon name="mdi:phone" width={25} height={25} />
+              </div>
+              <div>
+                <p class="font-extrabold text-primary mb-2">TELÉFONO</p>
+                <div class="flex justify-start items-start gap-8">
+                  <div>
+                    <p class="font-extrabold">305 356 1348</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form class="w-full mt-12">
+            <div
+              class="w-full flex flex-col justify-start items-start gap-4 mb-4"
+            >
+              <div
+                class="w-full flex justify-start items-start gap-4 max-md:flex-col"
+              >
+                <div class="w-full">
+                  <Input autofocus responsive blue placeholder="Nombre:" />
+                </div>
+                <div class="w-full">
+                  <Input responsive blue placeholder="Apellido:" />
+                </div>
+              </div>
+              <div class="w-full">
+                <Input responsive blue placeholder="Correo Electrónico:" />
+              </div>
+              <div class="w-full">
+                <Input responsive blue placeholder="Asunto" />
+              </div>
+              <div class="w-full">
+                <Input responsive blue placeholder="Descripción:" />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="bg-primary font-bold text-white p-4 rounded-lg max-md:w-full"
+              >ENVIAR</button
+            >
+          </form>
+        </div>
+      </div>
+    </HorizontalSpace>
+  </div>
+</Layout>

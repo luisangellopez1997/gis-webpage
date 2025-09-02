@@ -10,17 +10,27 @@ import Hero4 from "../../assets/services/hero-4.jpg";
 import { Image } from "astro:assets";
 ---
 
-<div class="pt-60 pb-20 bg-white-lighter aspect-[1920/922] w-full">
+<div
+  class="pt-20 pb-8 md:pt-60 md:pb-20 bg-white-lighter aspect-[1920/922] w-full"
+>
   <HorizontalSpace>
-    <div class="flex justify-start items-start w-full gap-16">
-      <div class="w-6/12">
-        <Title noCenter noMarginBottom>SOLICITA TU FRANQUICIA</Title>
-        <p class="text-4xl text-primary mt-2">Gispaquetería</p>
+    <div
+      class="flex justify-start items-start w-full gap-16 max-md:flex-col-reverse"
+    >
+      <div class="md:w-6/12 max-md:w-full">
+        <Title noCenter centerOnMobile noMarginBottom
+          >SOLICITA TU FRANQUICIA</Title
+        >
+        <p class="text-2xl md:text-4xl text-primary mt-2 max-md:text-center">
+          Gispaquetería
+        </p>
         <form class="w-full mt-12">
           <div
             class="w-full flex flex-col justify-start items-start gap-4 mb-4"
           >
-            <div class="w-full flex justify-start items-start gap-4">
+            <div
+              class="w-full flex justify-start items-start gap-4 max-md:flex-col"
+            >
               <div class="w-full">
                 <Input autofocus responsive blue placeholder="Nombre:" />
               </div>
@@ -43,33 +53,33 @@ import { Image } from "astro:assets";
           </div>
           <button
             type="submit"
-            class="bg-primary font-bold text-white p-4 rounded-lg"
+            class="bg-primary font-bold text-white p-4 rounded-lg max-md:w-full"
             >SOLICITAR</button
           >
         </form>
       </div>
-      <div class="w-6/12 flex justify-center items-center">
-        <div class="w-full">
+      <div class="md:w-6/12 flex justify-center items-center max-md:w-full">
+        <div class="w-full max-md:w-full max-md:max-w-[300px]">
           <div class="flex justify-start items-end gap-2 mb-2">
             <div
-              class="w-[335px] h-[310px] overflow-hidden rounded-2xl rounded-tl-[60px]"
+              class="w-[140px] max-md:aspect-[335/310] md:w-[335px] md:h-[310px] overflow-hidden rounded-2xl rounded-tl-[60px]"
             >
               <Image src={Hero1} alt="hero1" class="h-full" />
             </div>
             <div
-              class="w-[225px] h-[270px] overflow-hidden rounded-2xl rounded-tr-[60px]"
+              class="w-[120px] max-md:aspect-[225/270] md:w-[225px] md:h-[270px] overflow-hidden rounded-2xl rounded-tr-[60px]"
             >
               <Image src={Hero2} alt="hero2" class="h-full" />
             </div>
           </div>
           <div class="flex justify-end items-start gap-2">
             <div
-              class="w-[220px] h-[210px] overflow-hidden rounded-2xl rounded-bl-[60px]"
+              class="w-[120px] max-md:aspect-[220/210] md:w-[220px] md:h-[210px] overflow-hidden rounded-2xl rounded-bl-[60px]"
             >
               <Image src={Hero3} alt="hero3" class="h-full" />
             </div>
             <div
-              class="w-[335px] h-[260px] overflow-hidden rounded-2xl rounded-br-[60px]"
+              class="w-[140px] max-md:aspect-[335/260] md:w-[335px] md:h-[260px] overflow-hidden rounded-2xl rounded-br-[60px]"
             >
               <Image src={Hero4} alt="hero4" class="h-full" />
             </div>

@@ -4,9 +4,10 @@ export interface Props {
   type?: "submit" | "button";
   primary?: boolean;
   bold?: boolean;
+  fullWidthMobile?: boolean;
 }
 
-const { filled, type, primary, bold } = Astro.props;
+const { filled, type, primary, bold, fullWidthMobile } = Astro.props;
 
 const textBold = bold || filled ? "font-extrabold" : "font-[300]";
 const color = primary ? "text-primary" : filled ? "text-black" : "text-white";
@@ -18,7 +19,7 @@ const borderColor = primary
 ---
 
 <button
-  class={` border-2 rounded-sm  text-lg ${filled ? "bg-white rounded-xl px-6 py-4" : "px-3 py-2"} ${color} ${borderColor} ${textBold}`}
+  class={`${fullWidthMobile ? "max-md:w-full" : ""} cursor-pointer border-2 rounded-sm  text-lg ${filled ? "bg-white rounded-xl px-6 py-4" : "px-3 py-2"} ${color} ${borderColor} ${textBold}`}
   type={type}
 >
   <slot />
