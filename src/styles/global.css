@@ -45,6 +45,7 @@
     --font-Montserrat: "Montserrat", sans-serif;
 
     --animate-fadeIn: fadeIn .3s ease-out forwards;
+    --animate-scaleX: scaleX .3s ease-out forwards;
 
     @keyframes fadeIn {
 
@@ -54,6 +55,18 @@
 
         100% {
             transform: scale(1);
+        }
+
+    }
+
+    @keyframes scaleX {
+
+        0% {
+            transform: scaleX(0);
+        }
+
+        100% {
+            transform: scaleX(100%);
         }
 
     }
