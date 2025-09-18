@@ -52,22 +52,22 @@ const values = [
   <AdditionalInfo />
   <MoreInfo />
   <Modal name="company-purpose">
-    <div>
+    <div class="flex flex-col justify-start items-start h-full">
       <h3 class="text-3xl font-extrabold">NUESTROS VALORES</h3>
-      <div class="mt-16">
+      <div class="mt-16 max-md:mt-8 overflow-auto flex-1">
         {
           values.map(({ title, content }, index) => {
             return (
-              <div class="flex justify-between items-center gap-20">
+              <div class="flex justify-between items-center gap-20 max-md:flex-col max-md:items-start max-md:justify-start max-md:gap-2">
                 <div
-                  class={`flex w-[25%] h-full justify-start items-center gap-4 ${index == values.length - 1 ? "" : "border-b-1 pt-8 pb-8"} border-white font-extrabold`}
+                  class={`flex w-[25%] max-md:w-full h-full justify-start items-center gap-4 max-md:border-b-1 max-md:py-4 ${index == values.length - 1 ? "" : "border-b-1 pt-8 pb-8"} border-white font-extrabold`}
                 >
                   <div class="p-2 px-4 bg-white text-primary rounded-md shadow-md">
                     {index + 1}
                   </div>
                   <p>{title}</p>
                 </div>
-                <div class="flex-1 mb-8">{content}</div>
+                <div class="flex-1 mb-8 overflow-auto">{content}</div>
               </div>
             );
           })
