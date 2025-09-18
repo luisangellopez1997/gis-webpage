@@ -7,10 +7,17 @@ import Title from "../components/Title.astro";
 ---
 
 <Layout>
-  <div class="bg-primary w-full text-white pt-8 pb-8 md:pt-60 md:pb-20">
+  <div
+    class="bg-primary w-full text-white pt-8 pb-8 md:pt-60 md:pb-20 relative h-auto"
+  >
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent from-75% to-secondary"
+    >
+    </div>
     <HorizontalSpace>
       <div class="mb-8">
-        <Title white>EN G.I.S. TU OPINIÓN CUENTA. ¡CONTÁCTANOS HOY MISMO!</Title
+        <Title white md
+          >EN G.I.S. TU OPINIÓN CUENTA. <br />¡CONTÁCTANOS HOY MISMO!</Title
         >
       </div>
       <p class="text-center">
