@@ -5,22 +5,20 @@ import LogoBig from "../assets/logo-big.png";
 import { Icon } from "astro-icon/components";
 
 const links = [
-  { name: "Inicio", href: "/" },
-  { name: "Empresa", href: "/empresa" },
-  { name: "Servicios", href: "/servicios" },
-  { name: "Sucursales", href: "/sucursales" },
-  { name: "Contactos", href: "/contacto" },
+  { name: "Inicio", href: "/gis-webpage" },
+  { name: "Empresa", href: "/gis-webpage/empresa" },
+  { name: "Servicios", href: "/gis-webpage/servicios" },
+  { name: "Sucursales", href: "/gis-webpage/sucursales" },
+  { name: "Contactos", href: "/gis-webpage/contacto" },
 ];
 
 const pathname = Astro.url.pathname;
 ---
 
-<div class="flex justify-between items-center top-0 left-0 z-20 w-full bg-white pr-4 md:hidden">
-  <Image
-    src={LogoBig}
-    alt="logo"
-    class="w-[calc(100vw-65px)]"
-  />
+<div
+  class="flex justify-between items-center top-0 left-0 z-20 w-full bg-white pr-4 md:hidden"
+>
+  <Image src={LogoBig} alt="logo" class="w-[calc(100vw-65px)]" />
   <div
     class="navbar-open-button top-4 right-4 text-white z-20 rounded-xl bg-primary p-2 md:hidden"
   >
@@ -40,9 +38,7 @@ const pathname = Astro.url.pathname;
       <div
         class="animate-scaleX z-40 bg-white rounded-lg flex flex-col md:flex-row justify-between items-center shadow-[0px_10px_10px_1px_rgba(0,0,0,0.1)] origin-right md:animate-none max-md:-mr-4 max-md:-mt-2 max-md:rounded-tr-none max-md:rounded-br-none max-md:h-screen max-md:justify-start max-md:max-w-[80%]"
       >
-        <div
-          class="mb-8 md:mb-0 flex justify-end items-start w-full md:w-auto"
-        >
+        <div class="mb-8 md:mb-0 flex justify-end items-start w-full md:w-auto">
           <Image
             src={LogoBig}
             alt="logo"
@@ -63,7 +59,7 @@ const pathname = Astro.url.pathname;
               const thisPage = new RegExp(href + "(/|)$", "g").test(pathname);
               return (
                 <div class="py-4 mb-4 last:mb-0 md:mb-0 md:py-14 px-6 relative flex-1 text-center w-full md:w-auto max-md:min-w-[220px]">
-                  <a href={"/gis-webpage" + href} class="">
+                  <a href={href} class="">
                     {name}
                   </a>
                   <div
