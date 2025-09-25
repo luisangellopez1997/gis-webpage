@@ -4,11 +4,31 @@ import Title from "../Title.astro";
 import IconWithText from "../IconWithText.astro";
 import ContainerImg from "../../assets/company/container.png";
 import { Image } from "astro:assets";
+
+const items = [
+  { icon: "application-edit-outline", text: "Como registrar o/u cliente" },
+  {
+    icon: "microsoft-internet-explorer",
+    text: "Podríamos usar su información para mejorar este website de acuerdo a sus intereses.",
+  },
+  {
+    icon: "package-variant",
+    text: "Para mejorar nuestros productos y servicios.",
+  },
+  {
+    icon: "email",
+    text: "Cada cierto tiempo, podríamos usar su información para contactarle con fines de estudio de mercado. Podríamos contactar vía email, teléfono, fax o correo.",
+  },
+  {
+    icon: "telegram",
+    text: "Para enviarle correos electrónicos promocionales de nuevos productos o servicios que podríamos considerar de su interés, utilizando la dirección de correo electrónico que usted nos haya provisto.",
+  },
+];
 ---
 
 <div class="relative w-full bg-white-lighter py-24">
   <div
-    class="absolute top-0 left-0 bottom-0 m-auto w-full h-[2000px] overflow-hidden max-md:hidden"
+    class="absolute top-0 left-0 bottom-0 m-auto w-full h-[2000px] overflow-hidden max-lg:hidden"
   >
     <Image
       src={ContainerImg}
@@ -24,9 +44,9 @@ import { Image } from "astro:assets";
 
   <HorizontalSpace>
     <div class="relative">
-      <div class="flex flex-col items-center justify-start mb-4 md:mb-20">
+      <div class="flex flex-col items-center justify-start mb-4 lg:mb-20">
         <Title>¿CÓMO USAMOS TU INFORMACIÓN?</Title>
-        <p class="text-primary text-base md:text-lg max-w-[900px] text-center">
+        <p class="text-primary text-base lg:text-lg max-w-[900px] text-center">
           Utilizamos la información que recopilamos para proporcionar, mantener
           y mejorar nuestros servicios, así como para comunicarnos con usted y
           personalizar su experiencia. Requerimos este tipo de información para
@@ -36,39 +56,53 @@ import { Image } from "astro:assets";
       </div>
 
       <div
-        class="flex justify-center items-start w-full md:flex-wrap max-md:flex-col"
+        class="flex justify-center items-start w-full lg:flex-wrap max-lg:flex-col"
       >
-        <div class="md:w-4/12">
+        {
+          items.map(({ icon, text }, index) => {
+            return (
+              <div class="w-full lg:w-4/12">
+                <IconWithText
+                  iconName={icon}
+                  noSeparator={index == 2 || index == 4 ? true : false}
+                >
+                  {text}
+                </IconWithText>
+              </div>
+            );
+          })
+        }
+        <!-- <div class="lg:w-4/12">
           <IconWithText iconName="application-edit-outline"
             >Como registro interno de usuarios y/o compradores.</IconWithText
           >
         </div>
-        <div class="md:w-4/12">
+        <div class="lg:w-4/12">
           <IconWithText iconName="microsoft-internet-explorer"
             >Podríamos usar su información para mejorar este website de acuerdo
             a sus intereses.</IconWithText
           >
         </div>
-        <div class="md:w-4/12">
+        <div class="lg:w-4/12">
           <IconWithText iconName="package-variant" noSeparator
             >Para mejorar nuestros productos y servicios.</IconWithText
           >
         </div>
-        <div class="md:w-5/12">
+        <div class="lg:w-5/12">
           <IconWithText iconName="email" big
             >Cada cierto tiempo, podríamos usar su información para contactarle
             con fines de estudio de mercado. Podríamos contactar vía email,
             teléfono, fax o correo.</IconWithText
           >
         </div>
-        <div class="md:w-5/12">
+        <div class="lg:w-5/12">
           <IconWithText iconName="telegram" noSeparator
             >Para enviarle correos electrónicos promocionales de nuevos
             productos o servicios que podríamos considerar de su interés,
             utilizando la dirección de correo electrónico que usted nos haya
             provisto.</IconWithText
           >
-        </div>
+        </div> -->
       </div>
     </div>
   </HorizontalSpace>

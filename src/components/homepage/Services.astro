@@ -22,22 +22,22 @@ const services = [
 ];
 ---
 
-<div class="bg-white-light py-12 md:pt-24 md:pb-28">
+<div class="bg-white-light py-12 lg:pt-24 lg:pb-28">
   <HorizontalSpace>
-    <div class="mb-12 md:mb-24">
+    <div class="mb-12 lg:mb-24">
       <Title>Nuestros Servicios</Title>
       <SubTitle>Comprometidos en brindar soluciones integrales.</SubTitle>
     </div>
-    <div class="flex flex-col md:flex-row justify-between items-center w-full">
+    <div class="flex justify-between items-start w-full max-md:flex-wrap">
       {
         services.map(({ image, title, name }) => {
           return (
-            <a href={`/gis-webpage/servicios#${name}`}>
+            <a href={`/gis-webpage/servicios#${name}`} class="max-md:inline-block max-md:flex-6/12">
               <div
-                class={`our-services cursor-pointer flex flex-col items-center justify-center transition-all mb-12 md:mb-0`}
+                class={`our-services cursor-pointer flex flex-col items-center justify-center transition-all mb-12 lg:mb-0`}
               >
                 <div
-                  class={`w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full border-4 border-primary overflow-hidden relative mb-4`}
+                  class={`w-[120px] h-[120px] lg:w-[180px] lg:h-[180px] rounded-full border-4 border-primary overflow-hidden relative mb-4`}
                 >
                   <Image src={image} alt={title} />
                   <div
@@ -45,7 +45,7 @@ const services = [
                   />
                 </div>
                 <p
-                  class={`our-services-text uppercase font-bold max-w-[220px] text-center text-primary md:text-xl opacity-65`}
+                  class={`our-services-text uppercase font-bold max-w-[230px] text-center text-primary lg:text-xl opacity-65`}
                 >
                   {title}
                 </p>

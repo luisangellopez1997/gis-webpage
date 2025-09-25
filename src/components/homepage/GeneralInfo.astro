@@ -39,30 +39,30 @@ const info = [
 <div class="bg-secondary w-full flex pb-44">
   <HorizontalSpace>
     <div class="text-white max-w-[900px] relative left-0 right-0 m-auto">
-      <div class="w-full text-center mb-20 md:mb-40">
-        <p class="uppercase text-lg md:text-xl font-bold">Dirección de envío</p>
-        <p class="text-2xl md:text-4xl font-bold">
+      <div class="w-full text-center mb-20 lg:mb-40">
+        <p class="uppercase text-lg lg:text-xl font-bold">Dirección de envío</p>
+        <p class="text-2xl lg:text-4xl font-bold">
           10250 NW 89 AV. BAY 10, MEDLEY FL. 33178
         </p>
       </div>
       <div>
         <div
-          class="flex flex-col md:flex-row items-center justify-between w-full mb-4 md:mb-24"
+          class="flex items-center justify-between w-full mb-4 lg:mb-24 max-sm:flex-wrap"
         >
           {
             info.map(({ title, active, img }) => {
               return (
                 <div
-                  class={`tab flex flex-col mb-8 md:mb-0 items-center justify-center cursor-pointer ${active ? "active" : ""}`}
+                  class={`tab max-sm:flex-6/12 flex flex-col mb-8 lg:mb-0 items-center justify-center cursor-pointer ${active ? "active" : ""}`}
                 >
-                  <div class="rounded-full border border-white p-6 md:p-[40px] mb-4 md:mb-8">
+                  <div class="rounded-full border border-white p-6 lg:p-[40px] mb-4 lg:mb-8">
                     <Image
                       src={img}
                       alt={title}
-                      class="max-w-[35px] md:max-w-[55px]"
+                      class="max-w-[25px] md:max-w-[35px] lg:max-w-[55px]"
                     />
                   </div>
-                  <p class="uppercase font-bold md:text-xl">{title}</p>
+                  <p class="uppercase font-bold text-xs md:text-base lg:text-xl">{title}</p>
                 </div>
               );
             })
@@ -73,9 +73,9 @@ const info = [
             info.map(({ description, active }) => {
               return (
                 <div
-                  class={`tab-content flex flex-col md:flex-row justify-between items-center ${active ? "active" : ""}`}
+                  class={`tab-content flex flex-col lg:flex-row justify-between items-center ${active ? "active" : ""}`}
                 >
-                  <p class="md:text-lg max-w-[550px] mb-12 md:mb-0">
+                  <p class="lg:text-lg max-w-[550px] mb-12 lg:mb-0">
                     {description}
                   </p>
                   <Button>EXPLORAR</Button>

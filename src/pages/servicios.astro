@@ -73,7 +73,7 @@ const data = [
 ---
 
 <Layout>
-  <div class="relative w-full min-h-[922px]">
+  <div class="relative w-full">
     {
       data.map((service, index) => {
         return (
@@ -87,13 +87,13 @@ const data = [
       <Form />
     </div>
   </div>
-  <div class="py-8 md:py-20">
+  <div class="py-8 lg:py-20">
     <HorizontalSpace>
       <div class="pb-4">
         <Title>OTROS SERVICIOS</Title>
       </div>
       <div
-        class="flex justify-center items-center w-full gap-4 max-md:flex-col"
+        class="flex justify-center items-center w-full gap-4 max-lg:flex-col"
       >
         {
           data.map(({ title, path }, index) => {

@@ -14,13 +14,13 @@ const items = [
       },
       {
         title: "Mejores Precios:",
-        height: "md:h-[310px]",
+        height: "lg:h-[310px]",
         description:
           "Las tiendas internacionales y los catálogos a menudo ofrecen precios más competitivos, especialmente durante las temporadas de ofertas y descuentos.",
       },
       {
         title: "Calidad Garantizada",
-        height: 'md:h-[210px]',
+        height: 'lg:h-[210px]',
         description:
           "Al comprar en tiendas reconocidas y de confianza, puedes estar seguro de la calidad de los productos que adquieres.",
       },
@@ -52,13 +52,13 @@ const items = [
       },
       {
         title: "Métodos de Pago Seguros:",
-        height: "md:h-[310px]",
+        height: "lg:h-[310px]",
         description:
           "Utiliza métodos de pago seguros y confiables para proteger tu información financiera. Las tarjetas de crédito y los servicios de pago en línea son opciones recomendadas.",
       },
       {
         title: "Seguimiento de Envíos:",
-        height: 'md:h-[210px]',
+        height: 'lg:h-[210px]',
         description:
           "Una vez realizada la compra, utiliza herramientas de seguimiento para monitorear el estado de tu envío y asegurarte de que llegue a tiempo.",
       },
@@ -69,7 +69,7 @@ const items = [
 
 <div class="py-40">
   <HorizontalSpace>
-    <div class="flex justify-between flex-col md:flex-row items-start gap-20 md:gap-8 w-full">
+    <div class="flex justify-between flex-col lg:flex-row items-start gap-20 lg:gap-8 w-full">
       {
         items.map((e) => {
           return <CardMultipleText {...e} />;

@@ -11,7 +11,7 @@ const { white, noCenter, whiteLighter, noBold } = Astro.props;
 
 <div class="flex justify-center items-center">
   <p
-    class={`md:text-xl ${noBold ? "" : "font-bold"} w-full ${noCenter ? "" : "text-center"} max-w-[671px] ${whiteLighter ? "text-white-lighter" : white ? "text-white" : ""}`}
+    class={`lg:text-xl ${noBold ? "" : "font-bold"} w-full ${noCenter ? "" : "text-center"} max-w-[671px] ${whiteLighter ? "text-white-lighter" : white ? "text-white" : ""}`}
   >
     <slot />
   </p>
